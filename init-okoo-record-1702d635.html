@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>aoke · 简明指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f9fafb;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1f2937;
+      line-height: 1.7;
+      padding: 2rem 1.25rem;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* 标题层级 */
+    .hero {
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 2.25rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #111827;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .hero .tagline {
+      font-size: 1.05rem;
+      color: #4b5563;
+      max-width: 38rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin: 2.5rem 0 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0.5rem;
+    }
+
+    /* 卡片组 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.5rem 1.25rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.04);
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+
+    .card p {
+      font-size: 0.925rem;
+      color: #4b5563;
+      margin-bottom: 0;
+    }
+
+    .card .emoji-label {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* 自然链接段落块 */
+    .link-paragraph {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.75rem 1.5rem;
+      margin: 2rem 0 2.5rem 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+      border: 1px solid #f0f2f5;
+    }
+
+    .link-paragraph p {
+      font-size: 1rem;
+      color: #374151;
+      margin-bottom: 1rem;
+    }
+
+    .link-paragraph p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(37, 99, 235, 0.2);
+      transition: border-color 0.2s;
+    }
+
+    a:hover {
+      border-bottom-color: #2563eb;
+    }
+
+    /* 适合人群标签 */
+    .audience-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.75rem 0 1.5rem 0;
+    }
+
+    .tag {
+      background: #eef2ff;
+      color: #1e40af;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.25rem 0.8rem;
+      border-radius: 20px;
+      letter-spacing: 0.01em;
+    }
+
+    /* 提示区块 */
+    .remark-box {
+      background: #f3f4f6;
+      border-left: 4px solid #9ca3af;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0 1.8rem 0;
+    }
+
+    .remark-box p {
+      font-size: 0.925rem;
+      color: #374151;
+      margin-bottom: 0.4rem;
+    }
+
+    .remark-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      margin: 2.5rem 0 1rem 0;
+    }
+
+    .faq-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-a {
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e5e7eb;
+      margin: 2rem 0;
+    }
+
+    .footer-note {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      text-align: center;
+      margin-top: 3rem;
+      padding-bottom: 1rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 520px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      body {
+        padding: 1.5rem 1rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .link-paragraph {
+        padding: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- hero 主视觉 -->
+    <div class="hero">
+      <h1>aoke 使用笔记</h1>
+      <div class="tagline">一份温和的简明指南，帮助你了解这个工具有哪些可能。</div>
+    </div>
+
+    <!-- 用途卡片 -->
+    <div class="section-title">📌 常见用途</div>
+    <div class="card-grid">
+      <div class="card">
+        <span class="emoji-label">📎</span>
+        <h3>信息聚合</h3>
+        <p>将散落的内容集中到一处，方便随时调取与回顾，减少反复查找的消耗。</p>
+      </div>
+      <div class="card">
+        <span class="emoji-label">🗂️</span>
+        <h3>轻量整理</h3>
+        <p>适合日常记录、想法草稿或清单式管理，界面清爽，没有过多层级负担。</p>
+      </div>
+      <div class="card">
+        <span class="emoji-label">🔗</span>
+        <h3>快速查阅</h3>
+        <p>结构清晰，便于建立个人知识索引，在需要时迅速定位相关信息。</p>
+      </div>
+      <div class="card">
+        <span class="emoji-label">🧩</span>
+        <h3>灵活搭配</h3>
+        <p>可根据个人习惯调整使用方式，不限定固定流程，适应不同工作流。</p>
+      </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <div class="section-title">👤 适合什么样的人</div>
+    <div class="audience-tags">
+      <span class="tag">日常记录者</span>
+      <span class="tag">零散信息整理</span>
+      <span class="tag">轻量笔记用户</span>
+      <span class="tag">偏好极简界面</span>
+      <span class="tag">个人知识管理</span>
+    </div>
+    <p style="color: #4b5563; font-size: 0.95rem; margin-top: 0.2rem;">
+      不论你是偶尔记录灵感，还是希望为碎片信息找一个安静容器，都可以先试试看。工具的价值在于贴合你的节奏，而不是让你去适应它。
+    </p>
+
+    <!-- 自然链接段落：嵌入 aoke 链接 -->
+    <div class="link-paragraph">
+      <p>
+        如果你想进一步了解这个工具，可以前往 <a href="https://init-okoo.com">aoke</a> 
+        的主页阅读更多细节。那里提供了最近更新的介绍和使用说明，页面内容简洁，没有过多干扰。
+      </p>
+      <p>
+        另外，如果你在探索过程中有任何疑问，也可以留意页面中附带的提示或常见问题部分——它们通常能解答一些基础困惑。
+      </p>
+    </div>
+
+    <!-- 访问提醒 + 注意 -->
+    <div class="remark-box">
+      <p><strong>📬 访问提醒</strong></p>
+      <p>首次打开时建议花一两分钟浏览整体结构，方便后续快速找到所需功能。部分操作可能因浏览器或网络环境略有差异，遇到不确定的地方可以稍后再试。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+      <div class="section-title">❓ 常见疑问摘要</div>
+      <div class="faq-item">
+        <div class="faq-q">这个工具需要注册吗？</div>
+        <div class="faq-a">根据当前页面信息，大部分基础功能可直接使用，具体情况以实际页面说明为准。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">数据保存在哪里？</div>
+        <div class="faq-a">通常数据存储方式在工具内会有说明，建议留意界面中的提示或相关文档。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">是否支持多设备同步？</div>
+        <div class="faq-a">同步能力取决于工具本身的设计，可以查看官方页面或功能区域了解支持范围。</div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="footer-note">
+      aoke · 基于当前公开信息整理的参考页<br>
+      内容保持真实克制，建议以实际页面为准。
+    </div>
+  </div>
+</body>
+</html>
